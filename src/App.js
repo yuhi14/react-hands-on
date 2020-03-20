@@ -1,6 +1,10 @@
 import React from 'react';
 
-function App() {
+const App = () => {
+  return <WelcomeMessage />;
+}
+
+const WelcomeMessage = () => {
   const dom = <h1>Hello World!</h1>;
   const text = 'I ma React.';
   return (
@@ -10,7 +14,6 @@ function App() {
       <input type='text' onChange={() => { console.log('i am clicked!') }} />
     </React.Fragment>
   );
-
 }
 
 export default App;
