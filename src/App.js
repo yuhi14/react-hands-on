@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const App = () => {
   return (
@@ -25,6 +26,11 @@ const WelcomeMessage = (props) => {
 WelcomeMessage.defaultProps = {
   title: 'デフォルトタイトル',
   sub: 'デフォルトサブ'
+}
+
+WelcomeMessage.propTypes = {
+  title: PropTypes.string,
+  sub: PropTypes.string.isRequired
 }
 
 export default App;
