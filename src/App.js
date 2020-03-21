@@ -1,61 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Counter } from './counter.js';
+import "./app.css";
 
 const App = () => {
   return (
     <React.Fragment>
-      <WelcomeMessage title={'Hello World!'} sub={'I ma React.'} />
-      <WelcomeMessage title={'Hello japan!'} sub={'I ma React.'} />
+      <WelcomeMessage title={'Hello World!'} subTitle={'I am Yuhi.'} />
+      <WelcomeMessage title={"G's Academy"} subTitle={'世界を変えるGEEKになろう'} />
       <WelcomeMessage />
-      <p>------------------------------------------------------</p>
       <Counter />
     </React.Fragment>
   );
 }
 
 const WelcomeMessage = (props) => {
-  const dom = <h1>{props.title}</h1>;
-  const text = props.sub;
+  const dom = <h1 className='title'>{props.title}</h1>;
+  const text = props.subTitle;
   return (
     <React.Fragment>
       {dom}
       <p>{text}</p>
-      <input type='text' onChange={() => { console.log('i am clicked!') }} />
+      <p>------------------------------------------------------</p>
     </React.Fragment>
   );
 }
 
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { count: 0 };
-  }
-
-  handlePlusButton = () => {
-    this.setState({ count: this.state.count + 1 });
-  }
-
-  handleMinusButton = () => {
-    this.setState({ count: this.state.count - 1 });
-  }
-
-  render() {
-    return (<React.Fragment>
-      <div>count: {this.state.count}</div>
-      <button onClick={this.handlePlusButton}>+1</button>
-      <button onClick={this.handleMinusButton}>-1</button>
-    </React.Fragment>);
-  }
-}
-
+// propsのデフォルト値をセットする
 WelcomeMessage.defaultProps = {
   title: 'デフォルトタイトル',
-  sub: 'デフォルトサブ'
+  subTitle: 'デフォルトサブタイトル'
 }
 
+// propsの型を定義する
 WelcomeMessage.propTypes = {
   title: PropTypes.string,
-  sub: PropTypes.string.isRequired
+  subTitle: PropTypes.string.isRequired
 }
 
 export default App;
